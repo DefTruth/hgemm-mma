@@ -1,3 +1,8 @@
+# Notes 👇👇
+
+This project has been moved to [xlite-dev/hgemm-mma](https://github.com/xlite-dev/hgemm-mma). Please check [xlite-dev/hgemm-mma](https://github.com/xlite-dev/hgemm-mma) for latest updates! 👏👋
+
+---
 
 ## ⚡️⚡️Toy-HGEMM: Achieve the 98%~100% TFLOPS of cuBLAS 🎉🎉
 
