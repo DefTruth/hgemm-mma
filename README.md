@@ -3,7 +3,7 @@
 This project has been moved to [xlite-dev/hgemm-mma](https://github.com/xlite-dev/hgemm-mma). Please check [xlite-dev/hgemm-mma](https://github.com/xlite-dev/hgemm-mma) for latest updates! 👏👋
 
 ---
-
+<!---
 ## ⚡️⚡️Toy-HGEMM: Achieve the 98%~100% TFLOPS of cuBLAS 🎉🎉
 
 ![toy-hgemm-library](https://github.com/user-attachments/assets/962bda14-b494-4423-b8eb-775da9f5503d)
@@ -195,9 +195,7 @@ M N K =  16384  16384  16384, Time =   0.07668429   0.07669371   0.07670784 s, A
 <div id="perf-l20"></div>  
 
 ### 📖 NVIDIA L20  
-<!--
-目前最优的实现，在L20上（理论Tensor Cores FP16算力为 119.5 TFLOPS），整体上能达到cuBLAS大概`99~100+%`左右的性能。使用WMMA API能达到cuBLAS大概`95%~98%`左右的性能(105-113 TFLOPS vs 105-115 TFLOPS)，使用MMA API能达到115 TFLOPS，部分 case 会超越 cuBLAS。CuTe 版本的 HGEMM 实现了 Block Swizzle（L2 Cache friendly）和 SMEM Swizzle（bank conflicts free），性能最优，大规模矩阵乘能达到 116-117 TFLOPS，是 cuBLAS 大概`98%~100%+`左右的性能，很多case会超越cuBLAS。目前通过 SMEM Padding 和 SMEM Swizzle 的方式缓解 bank conflicts。对于 NN layout，使用 SMEM Padding 缓解 bank conflicts；对于 TN layout，通过 CUTLASS/CuTe 的 SMEM Swizzle 消除 bank conflicts。
--->
+
 The current best implementation, on the L20 (with a theoretical Tensor Cores FP16 performance of 119.5 TFLOPS), achieves performance that is approximately 99~100+% of cuBLAS.
 
 - Using the WMMA API, it can achieve around 95%~98% of cuBLAS performance (105-113 TFLOPS vs 105-115 TFLOPS).
@@ -224,9 +222,6 @@ python3 hgemm.py --cute-tn --mma --plot
 
 <div id="perf-4090"></div>  
 
-<!--
-在NVIDIA RTX 4090上(FP16 Tensor Cores算力为330 TFLOPS)，WMMA(m16n16k16)性能表现比MMA(m16n8k16)要更好，大分部MNK下，本仓库的实现能达到cuBLAS 95%~99%的性能，某些case能超过cuBLAS。就本仓库的实现而言，在RTX 4090上，大规模矩阵乘(MNK>=8192)，WMMA表现更优，小规模矩阵乘，MMA表现更优。
--->
 
 On the NVIDIA RTX 4090 (with an FP16 Tensor Cores performance of 330 TFLOPS), the WMMA (m16n16k16) implementation shows better performance compared to MMA (m16n8k16). For most MNK configurations, this repository's implementation achieves 95%~99% of cuBLAS performance, and in certain cases, it can surpass cuBLAS. Specifically:
 
@@ -244,9 +239,6 @@ python3 hgemm.py --cute-tn --mma --wmma-all --plot
 
 <div id="perf-3080"></div>  
 
-<!--
-在NVIDIA GeForce RTX 3080 Laptop上测试，使用mma4x4_warp4x4（16 WMMA m16n16k16 ops, warp tile 64x64）以及Thread block swizzle，大部分case能持平甚至超过cuBLAS，使用Windows WSL2 + RTX 3080 Laptop进行测试。
--->
 Testing was conducted on a NVIDIA GeForce RTX 3080 Laptop using the mma4x4_warp4x4 configuration (which includes 16 WMMA m16n16k16 operations with a warp tile size of 64x64) along with Thread block swizzle. In most cases, this setup matches or even exceeds cuBLAS performance. The tests were performed using Windows WSL2 + RTX 3080 Laptop.
 
 ![image](https://github.com/user-attachments/assets/9472e970-c083-4b31-9252-3eeecc761078)
@@ -377,3 +369,4 @@ TODO
 - [How_to_optimize_in_GPU](https://github.com/Liu-xiandong/How_to_optimize_in_GPU/tree/master/sgemv)
 - [cute_gemm](https://github.com/weishengying/cute_gemm)
 - [cutlass](https://github.com/NVIDIA/cutlass)
+--->
